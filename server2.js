@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const jsonParser = express.json()
-
+const PORT = process.env.PORT || 80
 const {MongoClient} = require('mongodb')
 const collection_name = 'situations'
 const client = new MongoClient('mongodb+srv://kaelovek:letmekeepitsecret@cluster0.y4hpw.mongodb.net/memesituations?retryWrites=true&w=majority')
@@ -40,4 +40,4 @@ app.post("/get_values",jsonParser, async function (request, response) {
 
 });
 
-app.listen(3000, () => console.log("Сервер работает"));
+app.listen(PORT, () => console.log("Сервер работает"));
